@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        {% include 'head.html' %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    </head>
+</head>
+<body>
+    {% include 'svg.html' %}
+	<section id="mobile-nav-panel" class='mobile-nav'>
+		<div class='mobile-nav-top'>
+			<div class="mobile-nav-title">
+				<h6 class='mobile-nav-name'>Menu</h6>
+				<div class="mobile-nav-close" id="nav-close"></div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/eng">Home</a></li>
+					<li><a href="/eng/catalog">Catalog</a></li>
+					<li><a href="/eng/sales">Sales</a></li>
+					<li><a href="/eng/about#discover">Azahar Coast</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="mobile-nav-logo">
+			<img src="{% static 'logo/logo-mobile-nav.png' %}" class="mobile-nav-logo-img">
+		</div>
+	</section>
+    <div class="photo-thumbnail" id="thumbnail" style="left: -100vw;">
+		<div class="photo-thumbnail-container" id="thumbnail-image" style="background-image: url('../img/main 2.jpg');">
+			<div class="photo-thumbnail-close" id="thumbnail-close">
+				<div class="photo-thumbnail-close-container">
+					<svg><use xlink:href="#close-svg"></svg>
+				</div>
+			</div>
+			<div class="change-left" id="left"><div class="change-container"><span class="arrow-left"></span></div></div>
+			<div class="change-right" id="right"><div class="change-container"><span class="arrow-right"></span></div></div>
+			<div class="photo-thumbnail-description">
+				<h3 id="thumb-title">{{product.title_eng}}</h3>
+				<p id="thumb-description">{{product.description_eng}}</p>
+			</div>
+		</div>
+	</div>
+    <main id="main">
+    <header>
+		<div class="header-top-menu">
+			<div class="top-menu-inner">
+				<div class="header-dropdown-menu">
+					<button id="drop-btn"><svg> <use xlink:href="#england"></svg><p>English</p></button>
+					<div id='dropdown-menu' class='dropdown closed'>
+						<a class='dropdown-item' href="{% url 'detail_sales_ru' product.product_id %}"><svg> <use xlink:href="#russia"></svg><p>Русский</p></a>
+						<a class='dropdown-item' href="{% url 'detail_sales_es' product.product_id %}"><svg> <use xlink:href="#spain"></svg><p>Español</p></a>
+						<a class='dropdown-item' href="{% url 'detail_sales_uk' product.product_id %}"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="inner-header">
+            <div class="header-title"><img src="{% static 'logo/logo 5.png' %}" alt="Alquileres Vinarós"></div>
+			<nav class="header-nav">
+				<a href="/eng" class="header-nav-item">Home</a>
+				<a href="/eng/catalog" class="header-nav-item">Catalog</a>
+				<a href="/eng/sales" class="header-nav-item">Sales</a>
+				<a href="/eng/about#discover" class="header-nav-item">Azahar Coast</a>
+				<a href="#contact" class="header-nav-item">Contact</a>
+			</nav>
+            <div class="header-burger" id="nav-open"></div>
+            <div class="header-phone">
+                <a href="tel:+34659151126">Call Us</a>
+            </div>
+        </div>
+    </header>
+    <section class="intro-detail">
+        <div class="intro-inner">
+            <h3 class="intro-detail-title">Find your perfect holiday rental in Vinarós or Peñiscola</h3>
+            <p class="intro-detail-description">Discover available rentals for the summer season and from September to June on our website.</p>
+        </div>
+    </section>
+    <div class="main">
+        <div class="inner-product">
+            <h3 class="main-title" data-title="{{product.title_esp}}">{{product.title_eng}}</h3>
+            <p class="main-description">{{product.description_eng}}</p>
+			<section class="gallery">
+				<div class="gallery-container">
+                    {% for img in images %}
+					<div class="element" data-title = "{{product.title_eng}}" data-description = "{{product.description_eng}}" style='background-image: url("{{img.image.url}}");'>
+						<div class="element-description"><h4 class="element-title"></h4></div>
+						<div class="element-open">
+							<h3>Open the image</h3>
+						</div>
+					</div>
+                    {% endfor %}
+				</div>
+			</section>
+            <div class="product-description">
+                <div class="bedrooms-number"><svg id="icon"> <use xlink:href="#bedroom"></svg><span>{{product.rooms_amount}}</span></div>
+					<div class="air-conditioning"><svg id="icon"> <use xlink:href="#air-conditioner"></svg>
+						{% if product.has_AirConditioner == True  %}<svg id="icon"><use xlink:href="#tick"></svg>
+						{% else %}
+						<svg id="icon"><use xlink:href="#cross"></svg>
+						{% endif %}
+					</div>
+					<div class="beach"><svg id="icon"> <use xlink:href="#beach"></svg><svg id="icon"> 
+						{% if product.has_Beach == True  %}<use xlink:href="#tick"></svg>
+						{% else %} 
+						<svg id="icon"><use xlink:href="#cross"></svg>
+						{% endif %}
+					</div>
+            </div>
+            <div class="product-prices" style="display: block; text-align: center;">
+                <p class='price-name'>Price</p>
+                <p class="price">{{product.price}}€</p>
+            </div>
+			<div class="catalog-btn">
+                <a href="/eng/sales#catalogue">Back to catalog</a>
+            </div>
+        </div>
+    </div>
+	{% include 'contact/contact-eng.html' %}
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-logo">
+				<img src="{% static 'logo/logo 5.png' %}" alt="Alquileres Vinarós">
+			</div>
+			<div class="footer-description">
+				<p>Copyright © 2023 Alquileres Vinarós. All rights reserved</p>
+			</div>
+		</div>
+	</footer>
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/gallery.js' %}"></script>
+</body>

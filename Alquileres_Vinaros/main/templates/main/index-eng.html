@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'head.html' %}
+</head>
+<body>
+    {% include 'svg.html' %}
+        <header>
+            {% load static %}
+            <div class="header-top-menu">
+                <div class="top-menu-inner">
+                    <div class="header-dropdown-menu">
+                        <button id="drop-btn"><svg> <use xlink:href="#england"></svg><p>English</p></button>
+                        <div id='dropdown-menu' class='dropdown closed'>
+                            <a class='dropdown-item' href="/ru"><svg> <use xlink:href="#russia"></svg><p>Русский</p></a>
+                            <a class='dropdown-item' href="/"><svg> <use xlink:href="#spain"></svg><p>Español</p></a>
+                            <a class='dropdown-item' href="/uk"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% include 'header/eng.html' %}
+        <section class="intro">
+            <div class="intro-inner">
+                <div class="intro-title">
+                    <h3>Find your perfect holiday rental in Azahar Coast</h3>
+                </div>
+                <div class="intro-description">
+                    <p>Discover available rentals for the summer season and from September to June on our website.</p>
+                </div>
+                <div class="intro-btn">
+                    <a href="/eng/catalog">Discover Now</a>
+                </div>
+            </div>
+        </section>
+        <section class="services">
+            <div class="inner-services">
+                <h3 class="services-title">Services</h3>
+                <div class="services-flex">
+                    <div class="services-text">
+                        <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>We offer relaxing vacations that you can enjoy with your family and friends on the Azahar coast, in the cities of Vinarós and Peñíscola. These are places with great peace and highly developed infrastructure.</p>
+                        <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>If you are a property owner and want to reach your potential customers, our listings would be perfect for you.</p>
+                        <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Our professional management will ensure that the properties are well-maintained and always ready to welcome guests.</p>
+                    </div>
+                    <img src="{% static 'img/services 3.jpg'%}" alt="Vinarós Rentals">
+                </div>
+            </div>
+        </section>
+        <section class="best-sellers">
+            <div class="inner-best-sellers">
+                <div class="best-sellers-intro">
+                    <h3 class="best-sellers-title">Best Deals</h3>
+                    <p class="best-sellers-description">Discover the best available offers.</p>
+                </div>
+                <div class="best-sellers-products">
+                    <div class="best-seller-carousel owl-carousel owl-theme owl-loaded">
+                        {% for item in products %}
+                        {% if item.is_best_offer == True %}
+                        <div class="item carousel-item">
+                            <div class="product-image">
+                                <img src='{{item.product_main_image}}' alt="Apartment for rent in Vinaros">
+                            </div>
+                            <div class="product-title">
+                                <p>{{item.title_eng}}</p>
+                            </div>
+                            <div class="product-description">
+                                <div class="person-max-number"><svg id="icon"> <use xlink:href="#person"></svg><span>{{ item.max_person }}</span></div>
+                                <div class="bedrooms-number"><svg id="icon"> <use xlink:href="#bedroom"></svg><span>{{ item.rooms_amount }}</span></div>
+                                <div class="air-conditioning"><svg id="icon"> <use xlink:href="#air-conditioner"></svg>
+                                    {% if item.has_AirConditioner == True %}<svg id="icon"><use xlink:href="#tick"></svg>
+                                    {% else %}
+                                    <svg id="icon"><use xlink:href="#cross"></svg>
+                                    {% endif %}
+                                </div>
+                                <div class="beach"><svg id="icon"> <use xlink:href="#beach"></svg><svg id="icon"> 
+                                    {% if item.has_Beach == True %}<use xlink:href="#tick"></svg>
+                                    {% else %} 
+                                    <svg id="icon" style="stroke: black;"><use xlink:href="#cross"></svg>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="product-prices">
+                                <div>
+                                <p class='price-name'>Summer price</p>
+                                <p class="price">{{item.summer_price}}€<span id='summer-price'>/noche</span></p>
+                                </div>
+                                <div>
+                                <p class='price-name'>Price for the rest of the year</p>
+                                <p class="price">{{ item.rest_of_year_price }}€<span id='summer-price'>/mes</span></p>
+                                </div>
+                            </div>
+                            <div class="product-button">
+                                <a href="{% url 'product_detail_eng' item.product_id %}" class="product-btn">Ver más</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'contact/contact-eng.html' %}
+        <footer class="footer" id="footer">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <img src="{% static 'logo/logo 5.png' %}" alt="Vinarós Rentals">
+                </div>
+                <div class="footer-description">
+                    <p>Copyright © 2023 Vinarós Rentals. All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+        <script src="{% static 'js/script.js' %}"></script>
+        <script src="{% static 'js/carousel.js' %}"></script>
+    </body>
+    </html>

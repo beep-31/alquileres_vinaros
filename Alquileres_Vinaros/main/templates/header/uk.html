@@ -1,0 +1,36 @@
+{% load static %}
+<div class="inner-header">
+    <div class="header-title"><img src="{% static 'logo/logo 5.png' %}" alt="Оренда в Вінаросі"></div>
+    <nav class="header-nav">
+        <a href="/uk" class="header-nav-item">Головна</a>
+        <a href="/uk/catalog" class="header-nav-item">Каталог</a>
+        <a href="/uk/sales" class="header-nav-item">Продажі</a>
+        <a href="/uk/about#discover" class="header-nav-item">Коста-дель-Асаар</a>
+        <a href="#contact" class="header-nav-item">Контакти</a>
+    </nav>
+    <div class="header-burger" id="nav-open"></div>
+    <div class="header-phone">
+        <a href="tel:+34659151126">Подзвоніть нам</a>
+    </div>
+</div>
+</header>
+<section id="mobile-nav-panel" class='mobile-nav'>
+<div class='mobile-nav-top'>
+    <div class="mobile-nav-title">
+        <h6 class='mobile-nav-name'>Меню</h6>
+        <div class="mobile-nav-close" id="nav-close"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/uk">Головна</a></li>
+            <li><a href="/uk/catalog">Каталог</a></li>
+            <li><a href="/uk/sales">Продажі</a></li>
+            <li><a href="/uk/about#discover">Коста-дель-Асаар</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="mobile-nav-logo">
+    <img src="{% static 'logo/logo-mobile-nav.png' %}" class="mobile-nav-logo-img">
+</div>
+</section>

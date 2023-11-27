@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    {% include 'head.html' %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    {% include 'about-svg.html' %}
+    <header>
+		<div class="header-top-menu">
+			<div class="top-menu-inner">
+				<div class="header-dropdown-menu">
+					<button id="drop-btn"><svg> <use xlink:href="#spain"></svg><p>Español</p></button>
+					<div id='dropdown-menu' class='dropdown closed'>
+						<a class='dropdown-item' href="/ru/about#discover"><svg> <use xlink:href="#russia"></svg><p>Русский</p></a>
+						<a class='dropdown-item' href="/eng/about#discover"><svg> <use xlink:href="#england"></svg><p>English</p></a>
+						<a class='dropdown-item' href="/uk/about#discover"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+{% include 'header/esp.html' %}
+    <section class="intro">
+        <div class="intro-inner">
+            <div class="intro-title">
+                <h3>Encuentra tu alquiler vacacional perfecto en la Costa del Azahar</h3>
+            </div>
+            <div class="intro-description">
+                <p>Descubre los alquileres disponibles en la temporada de verano y de septiembre a junio en nuestra página web</p>
+            </div>
+            <div class="intro-btn">
+                <a href="">Descubrir ahora</a>
+            </div>
+        </div>
+    </section>
+    <section class="discover" id="discover">
+        <div class="discover-inner">
+            <div class="discover-text">
+                <div class="discover-subtitle">Costa Azahar, la 'Costa de la Flor de Azahar'</div>
+                <div class="discover-title">Descubre toda la magnificencia de la costa de Azahar</div>
+                <div class="discover-description">
+                <p>
+                Al norte de Valencia se encuentra la Costa del Azahar, o la Costa de la Flor de Azahar. La zona forma parte de las provincias de Valencia y Castellón y es una de las regiones más hermosas y vírgenes de España.
+                No solo ofrece magníficas playas, sino también hermosas ciudades y paisajes.
+                La zona aún conserva su estado virgen en términos de turismo en comparación con su vecina Costa Blanca, pero no ofrece menos comodidades, instalaciones y atracciones. El aeropuerto más cercano está en Valencia.
+                </p>
+                </div>
+            </div>
+            <div class="discover-images">
+                <img src=" {% static 'img/about-img/1 new.jpg' %}  " alt="" class="discover-img no-mobile">
+                <img src=" {% static 'img/about-img/2 new.jpg' %}  " alt="" class="discover-img">
+            </div>
+        </div>
+    </section>
+	<section class="features">
+		<div class="features-inner">
+			<div class="features-info">
+				<div class="features-text">
+					<div class="features-subtitle">Más información</div>
+					<div class="features-title">Descubre toda la belleza de la Costa del Azahar</div>
+					<div class="features-description"><p>El paisaje de la Costa del Azahar es impresionante, lleno de campos de naranjos y limoneros, parques protegidos y reservas naturales; la región ofrece muchas oportunidades para aquellos que disfrutan de actividades al aire libre y turismo rural. Aquí puedes disfrutar de actividades como senderismo, excursionismo, escalada, rafting, ciclismo de montaña, y más.</p></div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#beach"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Playas</h3>
+						<p>Las playas son vírgenes y no se llenan tanto como las de la Costa Blanca, kilómetros de arena blanca
+							intercalada con calas escondidas, perfectas para los entusiastas del buceo.</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#paella"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Comida</h3>
+						<p>La cocina local, al igual que la mayor parte de Valencia, se basa en gran medida en platos de pescado y arroz. Especialidades incluyen
+							gambas locales, sardinas y anchoas, así como la famosa paella</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#carnival"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Fiestas</h3>
+						<p>San Antonio (17 de enero) en Benicassim, carnavales de Vinarós, Magdalena (Castellón, marzo), San Juan (24 de junio), fiestas de Oropesa (25 de julio), Santo Tomás (22 de septiembre) en Benicassim, 9 de octubre y fiestas de Peníscola (7 al 16 de octubre).</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#sun"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Clima</h3>
+						<p>La Costa del Azahar disfruta de un clima suave, con veranos cálidos y secos e inviernos templados. Ideal para visitas durante todo el año y perfecto para vacaciones.</p>
+						</div>
+					</div>
+				</div>
+				<div class="features-images">
+					<div class="feature-image-1"><img src=" {% static 'img/about-img/features 1.jpg' %} "></div>
+					<div class="feature-image-2"><img src=" {% static 'img/about-img/features 2.jpg' %} "></div>
+					<div class="feature-image-3"><img src=" {% static 'img/about-img/features 3.jpg' %} "></div>
+					<div class="feature-image-4"><img src=" {% static 'img/about-img/features 4.jpg' %}"></div>
+				</div>
+			</div>
+			<div class="features-btn">
+				<a href="/catalog#catalogue">Ir al catálogo</a>
+			</div>
+		</div>
+	</section>
+	<section class="places">
+		<div class="places-inner">
+			<div class="places-subtitle">Opinión de la gente</div>
+			<div class="places-title">Los lugares más populares</div>
+		</div>
+			<div class="places-carousel owl-carousel owl-theme owl-loaded">
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 1.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Peñíscola</div>
+						<div class="item-description">Uno de los más visitados en España</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 2.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Benicasim</div>
+						<div class="item-description">Destino ideal</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 3.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Morella</div>
+						<div class="item-description">Castillo del siglo XIV</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 4.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Carnaval de Vinarós</div>
+						<div class="item-description">La fiesta más animada del año</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 5.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Oropesa del mar</div>
+						<div class="item-description">Verano perfecto para ti</div>
+					</div>
+				</div>
+			</div>
+	</section>
+    {% include 'contact/contact-esp.html' %}
+    <footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-logo">
+				<img src="{% static 'logo/logo 5.png' %}" alt="Alquileres Vinarós">
+			</div>
+			<div class="footer-description">
+				<p>Derechos de autor © 2023 Alquileres Vinarós. Todos los derechos reservados</p>
+			</div>
+		</div>
+	</footer>
+    <script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/carousel-about.js' %}"></script>
+</body>
+</html>

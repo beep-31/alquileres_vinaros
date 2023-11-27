@@ -1,0 +1,36 @@
+{% load static %}
+<div class="inner-header">
+    <div class="header-title"><img src="{% static 'logo/logo 5.png' %}" alt="Alquileres Vinarós"></div>
+    <nav class="header-nav">
+        <a href="/" class="header-nav-item">Principal</a>
+        <a href="/catalog" class="header-nav-item">Catálago</a>
+        <a href="/sales" class="header-nav-item">Ventas</a>
+        <a href="/about#discover" class="header-nav-item">Costa Azahar</a>
+        <a href="#contact" class="header-nav-item">Contacto</a>
+    </nav>
+    <div class="header-burger" id="nav-open"></div>
+    <div class="header-phone">
+        <a href="tel:+34659151126">Llámanos</a>
+    </div>
+</div>
+</header>
+<section id="mobile-nav-panel" class='mobile-nav'>
+<div class='mobile-nav-top'>
+    <div class="mobile-nav-title">
+        <h6 class='mobile-nav-name'>Menú</h6>
+        <div class="mobile-nav-close" id="nav-close"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Principal</a></li>
+            <li><a href="/catalog">Catálago</a></li>
+            <li><a href="/sales">Ventas</a></li>
+            <li><a href="/about#discover">Costa del Azahar</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="mobile-nav-logo">
+    <img src="{% static 'logo/logo-mobile-nav.png' %}" class="mobile-nav-logo-img">
+</div>
+</section>

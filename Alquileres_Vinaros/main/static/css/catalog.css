@@ -1,0 +1,80 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.intro{
+    background-image: url('../img/catalago.jpeg');
+    background-blend-mode: unset;
+}
+
+.inner-catalogue{
+    padding: 30px 10px;
+}
+
+.catalogue-title{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-size: 32px;
+    margin-bottom: 30px
+}
+
+.catalogue-title::after{
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    display: block;
+    content: "";
+    background-color: #b97c5f;
+    width: 25%;
+    max-width: 50px;
+    height: 2px;
+    border-radius: 3px;
+}
+
+.catalogue-description{
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.catalogue-products{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-prices{
+    margin-bottom: 10px;
+}
+
+.product-btn{
+    font-size: 16px;
+    height: 36px;
+}
+
+.catalogue-product{
+    margin-bottom: 36px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 768px){
+    .catalogue-product{
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px){
+    .inner-catalogue{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .catalogue-product{
+        width: 30%;
+        transition: .35s all ease-out;
+    }
+    .catalogue-product:hover{
+        transform: translateY(-5px);
+    }
+}

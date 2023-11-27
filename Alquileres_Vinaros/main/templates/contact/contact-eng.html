@@ -1,0 +1,49 @@
+<section class="contact" id="contact">
+    <div class="inner-contact">
+        <div class="contact-title"><h3>Contact Us</h3></div>
+        <div class="contact-description"><p>Get in touch with us, and we'll answer any questions you may have.</p></div>
+        <div class="contact-form">
+            <form method="post" id="form" onsubmit='alert("Your form was submited. Thank you for contacting us!")'>
+                {% csrf_token %}
+                <div class="contact-form-top">
+                    <div class="contact-form">
+                        <input type="text" name="name" class="name-input" id="input__name" autocomplete="off" required>
+                        <div class="underline"></div>
+                        <label for="input__name" class="input__label" id="name__label">Name*</label>
+                    </div>
+                    <div class="contact-form">
+                        <input type="email" name="email" class="email-input" id="input__email" autocomplete="off" required>
+                        <div class="underline"></div>
+                        <label for="input__email" class="input__label" id="email__label">Email*</label>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" name="title" id="input__title" class="title-input" autocomplete="off" required>
+                        <div class="underline"></div>
+                        <label for="input__title" class="input__label" id="title__label">Subject</label>
+                    </div>
+                </div>
+                <div class="contact-textarea">
+                    <textarea name="textarea" id="textarea" required></textarea>
+                    <div class="underline" id="textarea-underline"></div>
+                    <label for="textarea" id="textarea_label">Message*</label>
+                </div>
+                <div class="contact-finish">
+                    <div class="contact__form__politics">
+                        <input type="checkbox" name="politics" id="politics" value="accepted" required>
+                        <p>Accept <a href="./politics">privacy policy</a></p>
+                    </div>
+                    <div class="contact__form__button">
+                        <button type="submit">Send</button>
+                        <p>* - required</p>
+                    </div>
+                    <div class="contact-social-media">
+                        <a class="social-media-item" aria-label="Chat on WhatsApp" href="https://wa.me/34659151126"><svg><use xlink:href="#whatsapp"></svg><span>Contact in WhatsApp</span></a>
+                        <a class="social-media-item" aria-label="Chat on Telegram" href="https://t.me/@alexshceg"><svg><use xlink:href="#telegram"></svg><span>Contact in Telegram</span></a>
+                        <a class="social-media-item" aria-label="Chat on Instagram" href="https://www.instagram.com/havrylyuklyudmyla/"><svg><use xlink:href="#instagram"></svg><span>Contact in Instagram</span></a>
+                        <a class="social-media-item" aria-label="Chat on Facebook" href="https://www.facebook.com/lhavrylyuk"><svg><use xlink:href="#facebook"></svg><span>Contact in Facebook</span></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

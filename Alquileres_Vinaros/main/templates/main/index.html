@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+	{% include 'head.html' %}
+</head>
+<body>
+	{% include 'svg.html' %}
+    <header>
+		{% load static %}
+		<div class="header-top-menu">
+			<div class="top-menu-inner">
+				<div class="header-dropdown-menu">
+					<button id="drop-btn"><svg> <use xlink:href="#spain"></svg><p>Español</p></button>
+					<div id='dropdown-menu' class='dropdown closed'>
+						<a class='dropdown-item' href="/ru"><svg> <use xlink:href="#russia"></svg><p>Русский</p></a>
+						<a class='dropdown-item' href="/eng"><svg> <use xlink:href="#england"></svg><p>English</p></a>
+						<a class='dropdown-item' href="/uk"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+{% include 'header/esp.html' %}
+    <section class="intro">
+        <div class="intro-inner">
+            <div class="intro-title">
+                <h3 alt-eng='Find your perfect holiday spot in Vinaros and Peñiscola'>Encuentra tu alquiler vacacional perfecto en la Costa del Azahar</h3>
+            </div>
+            <div class="intro-description">
+                <p>Descubre los alquileres disponibles en la temporada de verano y de septiembre a junio en nuestra página web</p>
+            </div>
+            <div class="intro-btn">
+                <a href="/catalog">Descubrir ahora</a>
+            </div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="inner-services">
+            <h3 class="services-title">Servicios</h3>
+			<div class="services-flex">
+				<div class="services-text">
+					<p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Os ofrecemos unas vacaciones relajantes que puedes pasar con tu familia y con tus amigos en la costa de Azahar, en las ciudades de Vinarós y Peñíscola. Unos lugaros con mucha paz y una infraestructura muy desarrollada</p>
+					<p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Si eres propietario y quieres tener el máximo alcance a tus clientes potenciales, nuestro listado sería perfecto para tí</p>
+					<p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Nuestra gestión profesional va a asegurar que las propiedades estén bien mantenidas y siempre listas para recibir huéspedes.</p>
+				</div>
+				<img src="{% static 'img/services 3.jpg'%}" alt="Alquileres Vinaros">
+			</div>
+        </div>
+    </section>
+	<section class="best-sellers">
+		<div class="inner-best-sellers">
+			<div class="best-sellers-intro">
+				<h3 class="best-sellers-title">Las mejores ofertas</h3>
+				<p class="best-sellers-description">Descubre las mejores ofertas disponibles</p>
+			</div>
+			<div class="best-sellers-products">
+				<div class="best-seller-carousel owl-carousel owl-theme owl-loaded">
+					{% for item in products %}
+					{% if item.is_best_offer == True %}
+					<div class="item carousel-item">
+						<div class="product-image">
+							<img src='{{item.product_main_image}}' alt="Piso para alquilar en Vinaros">
+						</div>
+						<div class="product-title">
+							<p>{{item.title_esp}}</p>
+						</div>
+						<div class="product-description">
+							<div class="person-max-number"><svg id="icon"> <use xlink:href="#person"></svg><span>{{ item.max_person }}</span></div>
+							<div class="bedrooms-number"><svg id="icon"> <use xlink:href="#bedroom"></svg><span>{{ item.rooms_amount }}</span></div>
+							<div class="air-conditioning"><svg id="icon"> <use xlink:href="#air-conditioner"></svg>
+								{% if item.has_AirConditioner == True %}<svg id="icon"><use xlink:href="#tick"></svg>
+								{% else %}
+								<svg id="icon"><use xlink:href="#cross"></svg>
+								{% endif %}
+							</div>
+							<div class="beach"><svg id="icon"> <use xlink:href="#beach"></svg><svg id="icon"> 
+								{% if item.has_Beach == True %}<use xlink:href="#tick"></svg>
+								{% else %} 
+								<svg id="icon" style="stroke: black;"><use xlink:href="#cross"></svg>
+								{% endif %}
+							</div>
+						</div>
+						<div class="product-prices">
+							<div>
+							<p class='price-name'>Precio verano</p>
+							<p class="price">{{item.summer_price}}€<span id='summer-price'>/noche</span></p>
+							</div>
+							<div>
+							<p class='price-name'>Precio el resto del año</p>
+							<p class="price">{{ item.rest_of_year_price }}€<span id='summer-price'>/mes</span></p>
+							</div>
+						</div>
+						<div class="product-button">
+							<a href="{% url 'product_detail_esp' item.product_id %}" class="product-btn">Ver más</a>
+						</div>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+	{% include 'contact/contact-esp.html' %}
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-logo">
+				<img src="{% static 'logo/logo 5.png'%}" alt="Alquileres Vinarós">
+			</div>
+			<div class="footer-description">
+				<p>Copyright © 2023 Alquileres Vinarós. Todos los derechos reservados</p>
+			</div>
+		</div>
+	</footer>
+	<script src="{% static '/js/script.js' %}"></script>
+	<script src="{% static '/js/carousel.js' %}"></script>
+</body>
+</html>

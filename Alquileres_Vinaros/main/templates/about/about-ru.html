@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    {% include 'head.html' %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    {% include 'about-svg.html' %}
+    <header>
+		<div class="header-top-menu">
+			<div class="top-menu-inner">
+				<div class="header-dropdown-menu">
+					<button id="drop-btn"><svg> <use xlink:href="#russia"></svg><p>Русский</p></button>
+					<div id='dropdown-menu' class='dropdown closed'>
+						<a class='dropdown-item' href="/eng/about#discover"><svg> <use xlink:href="#england"></svg><p>English</p></a>
+						<a class='dropdown-item' href="/about#discover"><svg> <use xlink:href="#spain"></svg><p>Español</p></a>
+						<a class='dropdown-item' href="/uk/about#discover"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+    {% include 'header/ru.html' %}
+    <section class="intro">
+        <div class="intro-inner">
+            <div class="intro-title">
+                <h3>Найдите идеальное место для отдыха в Винаросе или Пеньисколе</h3>
+            </div>
+            <div class="intro-description">
+                <p>Откройте для себя доступные аренды на летний сезон и с сентября по июнь на нашем веб-сайте</p>
+            </div>
+            <div class="intro-btn">
+                <a href="">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+    <section class="discover" id="discover">
+        <div class="discover-inner">
+            <div class="discover-text">
+                <div class="discover-subtitle">Коста-дель-Асаар</div>
+                <div class="discover-title">Откройте великолепие побережья Асаар</div>
+                <div class="discover-description">
+                <p>
+                На севере от Валенсии находится Коста-дель-Асаар, или Побережье Цветения Апельсиновых Деревьев. Регион входит в состав провинций Валенсии и Кастельон и является одним из самых красивых и нетронутых уголков Испании.
+                Здесь не только великолепные пляжи, но и красивые города и природные пейзажи.
+                Регион все еще относительно нетронут туризмом по сравнению с соседней Коста Бланка, но предлагает не меньше удобств и развлечений. Ближайший аэропорт находится в Валенсии.
+                </p>
+                </div>
+            </div>
+            <div class="discover-images">
+                <img src=" {% static 'img/about-img/1 new.jpg' %}  " alt="" class="discover-img no-mobile">
+                <img src=" {% static 'img/about-img/2 new.jpg' %}  " alt="" class="discover-img">
+            </div>
+        </div>
+    </section>
+	<section class="features">
+		<div class="features-inner">
+			<div class="features-info">
+				<div class="features-text">
+					<div class="features-subtitle">Узнайте больше</div>
+					<div class="features-title">Откройте всю красоту Коста-дель-Асаар</div>
+					<div class="features-description"><p>Природа Коста-дель-Асаар захватывает дух, полна апельсиновых и лимонных рощ, заповедных парков и природных заповедников; регион предлагает множество возможностей для тех, кто любит активный отдых и сельский туризм. Здесь вы можете наслаждаться активностями, такими как походы, горный туризм, скалолазание, рафтинг, горный велосипед и многое другое.</p></div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#beach"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Пляжи</h3>
+						<p>Пляжи здесь нетронуты и не так переполнены, как на Коста Бланка, километры белого песка, пересеченные уютными бухтами, идеальными для любителей подводного плавания.</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#paella"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Еда</h3>
+						<p>Местная кухня, как и в большинстве Валенсии, в значительной степени основана на рыбе и блюдах из риса. Специальности включают местные креветки, сардины и анчоусы, а также знаменитую паэлью</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#carnival"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Праздники</h3>
+						<p>Сан-Антонио (17 января) в Беникассиме, карнавалы Винароса, Магдалена (Кастельон, март), Сан-Хуан (24 июня), фестивали Оропеса (25 июля), Санто Томас (22 сентября) в Беникассиме, 9 октября и фестивали Пеньисколы (с 7 по 16 октября).</p>
+						</div>
+					</div>
+					<div class="features-point">
+						<div class="feature-svg">
+							<svg><use xlink:href="#sun"></svg>
+						</div>
+						<div class="feature-text">
+						<h3>Погода</h3>
+						<p>Коста-дель-Асаар имеет мягкий климат с теплыми сухими летами и умеренными зимами. Идеально подходит для посещения в течение всего года и отлично подходит для отпуска</p>
+						</div>
+					</div>
+				</div>
+				<div class="features-images">
+					<div class="feature-image-1"><img src=" {% static 'img/about-img/features 1.jpg' %} "></div>
+					<div class="feature-image-2"><img src=" {% static 'img/about-img/features 2.jpg' %} "></div>
+					<div class="feature-image-3"><img src=" {% static 'img/about-img/features 3.jpg' %} "></div>
+					<div class="feature-image-4"><img src=" {% static 'img/about-img/features 4.jpg' %}"></div>
+				</div>
+			</div>
+			<div class="features-btn">
+				<a href="/ru/catalog#catalogue">Перейти в каталог</a>
+			</div>
+		</div>
+	</section>
+	<section class="places">
+		<div class="places-inner">
+			<div class="places-subtitle">Мнение туристов</div>
+			<div class="places-title">Самые популярные места</div>
+		</div>
+			<div class="places-carousel owl-carousel owl-theme owl-loaded">
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 1.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Пеньискола</div>
+						<div class="item-description">Одно из самых посещаемых мест в Испании</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 2.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Беникассим</div>
+						<div class="item-description">Идеальное направление</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 3.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Морелья</div>
+						<div class="item-description">Замок XIV века</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 4.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Карнавал Винароса</div>
+						<div class="item-description">Самая веселая вечеринка года</div>
+					</div>
+				</div>
+				<div class="places-item carousel-item" style="background-image: url({% static 'img/about-img/tour 5.jpg' %})">
+					<div class="item-text">
+						<div class="item-title">Оропеса-дель-мар</div>
+						<div class="item-description">Идеальное лето для вас</div>
+					</div>
+				</div>
+			</div>
+	</section>
+    {% include 'contact/contact-ru.html' %}
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="{% static 'logo/logo 5.png' %}" alt="Аренда в Винаросе">
+            </div>
+            <div class="footer-description">
+                <p>Авторские права © 2023 Alquileres Costa Azahar. Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %} "></script>
+    <script src="{% static 'js/carousel-about.js' %}"></script>
+</body>

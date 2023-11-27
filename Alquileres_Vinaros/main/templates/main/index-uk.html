@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% include 'head.html' %}
+</head>
+<body>
+    {% include 'svg.html' %}
+    <header>
+        {% load static %}
+        <div class="header-top-menu">
+            <div class="top-menu-inner">
+                <div class="header-dropdown-menu">
+                    <button id="drop-btn"><svg> <use xlink:href="#ukraine"></use></svg><p>Українська</p></button>
+                    <div id='dropdown-menu' class='dropdown closed'>
+                        <a class='dropdown-item' href="/ru"><svg> <use xlink:href="#russia"></use></svg><p>Русский</p></a>
+                        <a class='dropdown-item' href="/eng"><svg> <use xlink:href="#england"></use></svg><p>English</p></a>
+                        <a class='dropdown-item' href="/"><svg> <use xlink:href="#spain"></use></svg><p>Español</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% include 'header/uk.html' %}
+    <section class="intro">
+        <div class="intro-inner">
+            <div class="intro-title">
+                <h3 alt-eng='Знайдіть свій ідеальний місце відпочинку в Вінаросі або Пеньїскола'>Знайдіть ідеальне місце для відпочинку на узбережжі Коста-дель-Асаар</h3>
+            </div>
+            <div class="intro-description">
+                <p>Відкрийте для себе доступну оренду на літній сезон та з вересня по червень на нашому веб-сайті.</p>
+            </div>
+            <div class="intro-btn">
+                <a href="/uk/catalog">Дізнатися більше</a>
+            </div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="inner-services">
+            <h3 class="services-title">Послуги</h3>
+            <div class="services-flex">
+                <div class="services-text">
+                    <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Ми пропонуємо релаксуючі відпустки, які ви можете провести разом з сім'єю та друзями на узбережжі Азагар, в містах Вінарос та Пеньїскола. Це місця з великим спокоєм і розвиненою інфраструктурою.</p>
+                    <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Якщо ви є власником нерухомості і хочете досягти своїх потенційних клієнтів, наші оголошення будуть для вас ідеальними.</p>
+                    <p class="services-description"> <svg> <use xlink:href="#tick"> </svg>Наш професійний менеджмент гарантує, що нерухомість завжди буде у гарному стані та готова приймати гостей.</p>
+                </div>
+                <img src="{% static 'img/services 3.jpg' %}" alt="Оренда в місті Вінарос">
+            </div>
+        </div>
+    </section>
+    <section class="best-sellers">
+        <div class="inner-best-sellers">
+            <div class="best-sellers-intro">
+                <h3 class="best-sellers-title">Найкращі пропозиції</h3>
+                <p class="best-sellers-description">Дізнайтеся про найкращі доступні пропозиції.</p>
+            </div>
+            <div class="best-sellers-products">
+                <div class="best-seller-carousel owl-carousel owl-theme owl-loaded">
+                    {% for item in products %}
+                    {% if item.is_best_offer == True %}
+                    <div class="item carousel-item">
+                        <div class="product-image">
+                            <img src='{{ item.product_main_image }}' alt="Апартаменти для оренди в Вінаросі">
+                        </div>
+                        <div class="product-title">
+                            <p>{{item.title_uk}}</p>
+                        </div>
+                        <div class="product-description">
+                            <div class="person-max-number"><svg id="icon"> <use xlink:href="#person"></svg><span>{{item.max_person}}</span></div>
+                            <div class="bedrooms-number"><svg id="icon"> <use xlink:href="#bedroom"></svg><span>{{item.rooms_amount}}</span></div>
+                            <div class="air-conditioning"><svg id="icon"> <use xlink:href="#air-conditioner"></svg>
+                                {% if item.has_AirConditioner == True %}<svg id="icon"><use xlink:href="#tick"></svg>
+                                {% else %}
+                                <svg id="icon"><use xlink:href="#cross"></svg>
+                                {% endif %}
+                            </div>
+                            <div class="beach"><svg id="icon"> <use xlink:href="#beach"></svg><svg id="icon"> 
+                                {% if item.has_Beach == True %}<use xlink:href="#tick"></svg>
+                                {% else %} 
+                                <svg id="icon" style="stroke: black;"><use xlink:href="#cross"></svg>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="product-prices">
+                            <div>
+                                <p class='price-name'>Ціна літом</p>
+                                <p class="price">{{item.summer_price}}€<span id='summer-price'>/ночі</span></p>
+                            </div>
+                            <div>
+                                <p class='price-name'>Ціна поза сезоном</p>
+                                <p class="price">{{item.rest_of_year_price}}€<span id='summer-price'>/місяць</span></p>
+                            </div>
+                        </div>
+                        <div class="product-button">
+                            <a href="{% url 'product_detail_uk' item.product_id %}" class="product-btn">Дізнатися більше</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'contact/contact-ukr.html' %}
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="{% static 'logo/logo 5.png' %}" alt="Оренда в місті Вінарос">
+            </div>
+            <div class="footer-description">
+                <p>Авторське право © 2023 Оренда в місті Вінарос. Усі права захищені</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/carousel.js' %}"></script>
+</body>
+</html>

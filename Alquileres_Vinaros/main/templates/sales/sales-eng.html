@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        {% include 'head.html' %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+		<link rel="stylesheet" href="{% static 'css/search.css' %}">
+    </head>
+</head>
+{% include 'svg.html' %}
+<body>
+    <header>
+		<div class="header-top-menu">
+			<div class="top-menu-inner">
+				<div class="header-dropdown-menu">
+					<button id="drop-btn"><svg> <use xlink:href="#england"></svg><p>English</p></button>
+					<div id='dropdown-menu' class='dropdown closed'>
+						<a class='dropdown-item' href="/ru/sales"><svg> <use xlink:href="#russia"></svg><p>Русский</p></a>
+						<a class='dropdown-item' href="/sales"><svg> <use xlink:href="#spain"></svg><p>Español</p></a>
+						<a class='dropdown-item' href="/uk/sales"><svg> <use xlink:href="#ukraine"></svg><p>Українська</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+    {% include 'header/eng.html' %}   
+	<section class="intro">
+        <div class="intro-inner">
+            <div class="intro-title">
+                <h3>Discover our sales catalog</h3>
+            </div>
+            <div class="intro-description">
+                <p>Discover available sales on our website</p>
+            </div>
+        </div>
+    </section>
+	<section class="catalogue" id="catalogue">
+		<div class="inner-catalogue">
+			<div class="catalogue-title"><h3>Catalog</h3></div>
+			<div class="catalogue-description">Explore all the available offers on the website</div>
+			<div class="catalogue-products">
+				{% if products %}
+                {% for item in products %}
+                {% if item.is_Available == True %}
+				<div class="catalogue-product">
+					<div class="product-image">
+						<img src='{{item.product_main_image.url}}' alt="{{item.title_esp}}">
+					</div>
+					<div class="product-title">
+						<p>{{item.title_eng}}</p>
+					</div>
+					<div class="product-description">
+						<div class="bedrooms-number"><svg id="icon"> <use xlink:href="#bedroom"></svg><span>{{item.rooms_amount}}</span></div>
+                        <div class="air-conditioning"><svg id="icon"> <use xlink:href="#air-conditioner"></svg>
+                            {% if item.has_AirConditioner == True  %}<svg id="icon"><use xlink:href="#tick"></svg>
+                            {% else %}
+                            <svg id="icon"><use xlink:href="#cross"></svg>
+                            {% endif %}
+                        </div>
+                        <div class="beach"><svg id="icon"> <use xlink:href="#beach"></svg><svg id="icon"> 
+                            {% if item.has_Beach == True  %}<use xlink:href="#tick"></svg>
+                            {% else %} 
+                            <svg id="icon" style="stroke: black;"><use xlink:href="#cross"></svg>
+                            {% endif %}
+                        </div>
+					</div>
+					<div class="product-prices">
+						<div style="text-align: center; width: 100%;">
+						<p class='price-name' style="font-size: 18px;">Price</p>
+						<p class="price" style="font-size: 22px;">{{item.price}}€</p>
+						</div>
+					</div>
+					<div class="product-button">
+						<a href="{% url 'detail_sales_eng' item.product_id %}" class="product-btn">See More</a>
+					</div>
+				</div>
+                {% endif %}
+                {% endfor %}
+				{% else %}
+				<h3>No sales are available at the moment</h3>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	{% include 'contact/contact-eng.html' %}
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-logo">
+				<img src="{% static 'logo/logo 5.png' %}" alt="Alquileres Vinarós">
+			</div>
+			<div class="footer-description">
+				<p>Copyright © 2023 Alquileres Vinarós. All rights reserved</p>
+			</div>
+		</div>
+	</footer>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/search.js' %}"></script>
+</body>
+</html>
